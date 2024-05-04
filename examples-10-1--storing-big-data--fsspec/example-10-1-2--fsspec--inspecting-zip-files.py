@@ -3,7 +3,7 @@ Compare zipfile and fsspec on the inspection of zips contained csvs.
 
 Motivation:
 - zipfile -> more mess
-- fsspec -> less mess and no need to learn the zipfile interface
+- fsspec -> less mess and no need to learn the zipfile API
 """
 import zipfile
 import pandas as pd
@@ -66,16 +66,18 @@ describe_csvs_in_zips_with_zipfile(['dummy.zip'])
 # top     john  manchester
 # freq       1           1
 #
-# zf_info.filename: dummy/dir/
+# zf_info.filename: dummy/dir1/
 #
-# zf_info.filename: dummy/dir/file2.txt
+# zf_info.filename: dummy/dir1/file2.txt
+#
+# zf_info.filename: dummy/dir2/
 
 describe_csvs_in_zips_with_fsspec(['dummy.zip'])
 # zip_file: dummy.zip
 #
-# filename: dummy/dir/file2.txt
+# file: dummy/dir1/file2.txt
 #
-# filename: dummy/dummy1.csv
+# file: dummy/dummy1.csv
 # df.describe():
 #         col1  col2
 # count   3.0   3.0
@@ -87,7 +89,7 @@ describe_csvs_in_zips_with_fsspec(['dummy.zip'])
 # 75%     4.0   5.0
 # max     5.0   6.0
 #
-# filename: dummy/dummy2.csv
+# file: dummy/dummy2.csv
 # df.describe():
 #          name     address
 # count      3           3
@@ -95,4 +97,4 @@ describe_csvs_in_zips_with_fsspec(['dummy.zip'])
 # top     john  manchester
 # freq       1           1
 #
-# filename: dummy/file1.txt
+# file: dummy/file1.txt
