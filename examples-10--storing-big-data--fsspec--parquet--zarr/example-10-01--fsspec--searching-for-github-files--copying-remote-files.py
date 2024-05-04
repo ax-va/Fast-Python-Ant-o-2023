@@ -1,5 +1,5 @@
 """
-Demonstrate functionalities of fsspec's GithubFileSystem.
+Demonstrate fsspec's GithubFileSystem.
 
 Extra functionality:
 - Navigate repository at any point in time, not just at the current time point of the master branch.
@@ -9,7 +9,7 @@ Limitations:
 - If you query the server many times, it will rate-limit you.
 """
 import os
-from typing import Generator
+from typing import Generator, Iterable
 from fsspec.implementations.github import GithubFileSystem  # requests installed
 
 github_user = "ax-va"
@@ -17,7 +17,7 @@ github_repo = "Fast-Python-Antao-2023"
 
 fs = GithubFileSystem(github_user, github_repo)
 print(fs.ls(""))  # The root directory is represented by the empty string, not by the typical /
-# [..., 'README.md', ..., 'examples-10--storing-big-data', ...]
+# [..., 'README.md', ..., 'examples-10--storing-big-data--fsspec--parquet--zarr', ...]
 
 
 def get_remote_zip_files(fs: "FileSystem", root_path: str = "") -> Generator[str, None, None]:
@@ -30,18 +30,18 @@ def get_remote_zip_files(fs: "FileSystem", root_path: str = "") -> Generator[str
 
 
 remote_zip_files = list(get_remote_zip_files(fs))
-# [..., 'examples-10--storing-big-data/dummy.zip', ...]
+# [..., 'examples-10--storing-big-data--fsspec--parquet--zarr/dummy.zip', ...]
 
 
-def copy_zip_files(fs):
-    """ Copy single remote file to local file """
-    for remote_zip_file in get_remote_zip_files(fs):
-        basename = os.path.basename(remote_zip_file)
-        new_local_file = basename.split(".")[0] + "_copied.zip"
+def copy_files_to_local(files: Iterable[str]) -> Generator[str, None, None]:
+    """ Copy files to local """
+    for file in files:
+        file_basename = os.path.basename(file)
+        new_local_file = file_basename.split(".")[0] + "_copied.zip"
         # Copy
-        fs.get_file(remote_zip_file, new_local_file)
+        fs.get_file(file, new_local_file)
         yield new_local_file
 
 
-copied_zip_files = list(copy_zip_files(fs))
+copied_zip_files = list(copy_files_to_local(remote_zip_files))
 # ['dummy_copied.zip']
