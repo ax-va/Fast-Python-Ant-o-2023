@@ -25,6 +25,21 @@ def describe_csvs_in_zips_with_zipfile(zip_files: Iterable[str]) -> None:
             print("df.describe():\n", df.describe())
 
 
+def describe_csvs_in_zips_with_fsspec(zip_files: Iterable[str]) -> None:
+    """ Describe zips contained csvs with fsspec and Pandas """
+    for zip_file in zip_files:
+        print("zip_file:", zip_file)
+        zfs = ZipFileSystem(zip_file)
+        # The find method, along with all others,
+        # exists for all kinds of filesystems, not just for zip
+        for filename in zfs.find(""):
+            if not filename.endswith(".csv"):
+                continue
+            print("\nfilename:", filename)
+            df = pd.read_csv(zfs.open(filename))
+            print("df.describe():\n", df.describe())
+
+
 describe_csvs_in_zips_with_zipfile(['dummy_copied.zip'])
 # zip_file: dummy_copied.zip
 #
@@ -47,22 +62,6 @@ describe_csvs_in_zips_with_zipfile(['dummy_copied.zip'])
 # unique     3           3
 # top     john  manchester
 # freq       1           1
-
-
-def describe_csvs_in_zips_with_fsspec(zip_files: Iterable[str]) -> None:
-    """ Describe zips contained csvs with fsspec and Pandas """
-    for zip_file in zip_files:
-        print("zip_file:", zip_file)
-        zfs = ZipFileSystem(zip_file)
-        # The find method, along with all others,
-        # exists for all kinds of filesystems, not just for zip
-        for filename in zfs.find(""):
-            if not filename.endswith(".csv"):
-                continue
-            print("\nfilename:", filename)
-            df = pd.read_csv(zfs.open(filename))
-            print("df.describe():\n", df.describe())
-
 
 describe_csvs_in_zips_with_fsspec(['dummy_copied.zip'])
 # zip_file: dummy_copied.zip
