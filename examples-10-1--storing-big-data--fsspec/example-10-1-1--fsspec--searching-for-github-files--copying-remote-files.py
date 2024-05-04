@@ -44,4 +44,4 @@ def copy_files_to_local(files: Iterable[str]) -> Generator[str, None, None]:
 
 
 copied_zip_files = list(copy_files_to_local(remote_zip_files))
-# ['dummy_copied.zip']
+# [..., 'dummy_copied.zip', ...]
