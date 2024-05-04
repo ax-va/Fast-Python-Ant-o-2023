@@ -2,7 +2,7 @@
 Compare zipfile and fsspec on the inspection of zips contained csvs.
 
 Motivation:
-- zipfile -> re-opening zip for reading csv -> more mess
+- zipfile -> more mess
 - fsspec -> less mess and no need to learn the zipfile interface
 """
 import zipfile
