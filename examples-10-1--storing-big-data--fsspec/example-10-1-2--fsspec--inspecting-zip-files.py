@@ -12,7 +12,7 @@ from fsspec.implementations.zip import ZipFileSystem
 
 
 def describe_csvs_in_zips_with_zipfile(zip_files: Iterable[str]) -> None:
-    """ Describe zips contained csvs with zipfile and Pandas """
+    """ Describe csvs in zips with zipfile and Pandas """
     for zip_file in zip_files:
         print("zip_file:", zip_file)
         # Open the zip file using zipfile
@@ -26,7 +26,7 @@ def describe_csvs_in_zips_with_zipfile(zip_files: Iterable[str]) -> None:
 
 
 def describe_csvs_in_zips_with_fsspec(zip_files: Iterable[str]) -> None:
-    """ Describe zips contained csvs with fsspec and Pandas """
+    """ Describe csvs in zips with fsspec and Pandas """
     for zip_file in zip_files:
         print("zip_file:", zip_file)
         zfs = ZipFileSystem(zip_file)
