@@ -30,7 +30,7 @@ def describe_csvs_in_zips_with_fsspec(zip_files: Iterable[str]) -> None:
     for zip_file in zip_files:
         print("zip_file:", zip_file)
         zfs = ZipFileSystem(zip_file)
-        # Use the find method common for fsspec
+        # Use the find method that is common for fsspec
         for filename in zfs.find(""):
             if not filename.endswith(".csv"):
                 continue
