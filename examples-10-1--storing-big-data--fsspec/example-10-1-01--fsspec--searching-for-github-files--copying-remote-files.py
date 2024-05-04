@@ -17,7 +17,7 @@ github_repo = "Fast-Python-Antao-2023"
 
 fs = GithubFileSystem(github_user, github_repo)
 print(fs.ls(""))  # The root directory is represented by the empty string, not by the typical /
-# [..., 'README.md', ..., 'examples-10--storing-big-data--fsspec--parquet--zarr', ...]
+# [..., 'README.md', ..., 'examples-10-1--storing-big-data--fsspec', ...]
 
 
 def get_remote_zip_files(fs: "FileSystem", root_path: str = "") -> Generator[str, None, None]:
@@ -30,7 +30,7 @@ def get_remote_zip_files(fs: "FileSystem", root_path: str = "") -> Generator[str
 
 
 remote_zip_files = list(get_remote_zip_files(fs))
-# [..., 'examples-10--storing-big-data--fsspec--parquet--zarr/dummy.zip', ...]
+# [..., 'examples-10-1--storing-big-data--fsspec/dummy.zip', ...]
 
 
 def copy_files_to_local(files: Iterable[str]) -> Generator[str, None, None]:
