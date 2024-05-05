@@ -1,0 +1,6 @@
+# big data
+# 109.9 MB
+# from https://tiago.org/yellow_tripdata_2020-01.csv.gz
+big_data/yellow_tripdata_2020-01.csv.gz
+# 113.1 MB
+big_data/yellow_tripdata_2020-01.parquet
