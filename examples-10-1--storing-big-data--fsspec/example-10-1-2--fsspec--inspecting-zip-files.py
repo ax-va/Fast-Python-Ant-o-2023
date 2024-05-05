@@ -75,9 +75,9 @@ describe_csvs_in_zips_with_zipfile(['dummy.zip'])
 describe_csvs_in_zips_with_fsspec(['dummy.zip'])
 # zip_file: dummy.zip
 #
-# file: dummy/dir1/file2.txt
+# zipped_file: dummy/dir1/file2.txt
 #
-# file: dummy/dummy1.csv
+# zipped_file: dummy/dummy1.csv
 # df.describe():
 #         col1  col2
 # count   3.0   3.0
@@ -89,7 +89,7 @@ describe_csvs_in_zips_with_fsspec(['dummy.zip'])
 # 75%     4.0   5.0
 # max     5.0   6.0
 #
-# file: dummy/dummy2.csv
+# zipped_file: dummy/dummy2.csv
 # df.describe():
 #          name     address
 # count      3           3
@@ -97,4 +97,4 @@ describe_csvs_in_zips_with_fsspec(['dummy.zip'])
 # top     john  manchester
 # freq       1           1
 #
-# file: dummy/file1.txt
+# zipped_file: dummy/file1.txt
