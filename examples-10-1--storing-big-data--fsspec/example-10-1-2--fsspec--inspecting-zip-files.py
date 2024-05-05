@@ -31,11 +31,11 @@ def describe_csvs_in_zips_with_fsspec(zip_files: Iterable[str]) -> None:
         print("zip_file:", zip_file)
         zfs = ZipFileSystem(zip_file)
         # Use the find method that is common for fsspec
-        for file in zfs.find(""):
-            print("\nfile:", file)
-            if not file.endswith(".csv"):
+        for zipped_file in zfs.find(""):  # Find from the root in the zip file
+            print("\nzipped_file:", zipped_file)
+            if not zipped_file.endswith(".csv"):
                 continue
-            df = pd.read_csv(zfs.open(file))
+            df = pd.read_csv(zfs.open(zipped_file))
             print("df.describe():\n", df.describe())
 
 
