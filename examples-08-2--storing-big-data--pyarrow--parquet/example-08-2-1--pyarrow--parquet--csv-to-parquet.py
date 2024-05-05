@@ -1,3 +1,6 @@
+"""
+New York City taxi data
+"""
 import pyarrow as pa
 import pyarrow.parquet as pq
 from pyarrow import csv
