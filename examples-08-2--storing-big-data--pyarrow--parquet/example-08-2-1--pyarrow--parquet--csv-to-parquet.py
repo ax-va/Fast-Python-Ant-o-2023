@@ -13,7 +13,7 @@ big_data/yellow_tripdata_2020-01.csv.gz
 big_data/yellow_tripdata_2020-01.parquet
 """
 
-table = csv.read_csv("../data/yellow_tripdata_2020-01.csv.gz")
+table = csv.read_csv("../big_data/yellow_tripdata_2020-01.csv.gz")
 pq.write_table(table, "../big_data/yellow_tripdata_2020-01.parquet")
 
 import pandas as pd
