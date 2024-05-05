@@ -8,7 +8,7 @@ with fsspec.open("dummy.txt", "r") as f:
 # 'Dummy text 2'
 
 # Use URL chaining to open a csv file in a zip file
-with fsspec.open("zip://dummy/dummy1.csv::dummy.zip", "rt") as f:  # "zip://" is a protocol
+with fsspec.open("zip://dummy/dummy1.csv::dummy.zip", "r") as f:  # "zip://" is a protocol
     print(f.read())
 # col1,col2
 # 1,2
