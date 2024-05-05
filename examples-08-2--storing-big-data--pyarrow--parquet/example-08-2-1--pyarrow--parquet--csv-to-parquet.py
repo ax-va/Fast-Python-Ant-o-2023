@@ -1,24 +1,24 @@
 import pyarrow.parquet as pq
 from pyarrow import csv
 
-# Big data file is available under
+# Large data file is available under
 # https://tiago.org/yellow_tripdata_2020-01.csv.gz
 
 # Add big files to .gitignore with:
 """
-# big data for GitHub
+# large data for GitHub
 # 109.9 MB
-big_data/yellow_tripdata_2020-01.csv.gz
+large_data/yellow_tripdata_2020-01.csv.gz
 # 113.1 MB
-big_data/yellow_tripdata_2020-01.parquet
+large_data/yellow_tripdata_2020-01.parquet
 """
 
-table = csv.read_csv("../big_data/yellow_tripdata_2020-01.csv.gz")
-pq.write_table(table, "../big_data/yellow_tripdata_2020-01.parquet")
+table = csv.read_csv("../large_data/yellow_tripdata_2020-01.csv.gz")
+pq.write_table(table, "../large_data/yellow_tripdata_2020-01.parquet")
 
 import pandas as pd
 
-df = pd.read_parquet("../big_data/yellow_tripdata_2020-01.parquet")
+df = pd.read_parquet("../large_data/yellow_tripdata_2020-01.parquet")
 df.head()
 #    VendorID tpep_pickup_datetime tpep_dropoff_datetime  passenger_count  trip_distance  RatecodeID store_and_fwd_flag  ...  extra  mta_tax  tip_amount  tolls_amount  improvement_surcharge  total_amount  congestion_surcharge
 # 0       1.0  2020-01-01 00:28:15   2020-01-01 00:33:03              1.0            1.2         1.0                  N  ...    3.0      0.5        1.47           0.0                    0.3         11.27                   2.5
