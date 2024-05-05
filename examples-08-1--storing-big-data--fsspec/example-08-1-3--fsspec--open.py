@@ -1,3 +1,10 @@
+"""
+Notice for big data:
+fsspec supports the ability to partially download data from remote servers.
+That can only be done if the server supports partial file downloading.
+GitHub doesn't support it, S3 does.
+Activate cache when calling "open" with the parameter "cache_type='readahead'".
+"""
 import fsspec
 import pandas as pd
 

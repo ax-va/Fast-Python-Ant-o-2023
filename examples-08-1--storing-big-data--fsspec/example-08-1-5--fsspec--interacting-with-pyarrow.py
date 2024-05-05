@@ -3,6 +3,7 @@ from pyarrow import csv
 from pyarrow.fs import PyFileSystem, FSSpecHandler
 
 zfs = ZipFileSystem("dummy.zip")
+# Map the fsscep filesystem to the Arrow filesystem
 arrow_fs = PyFileSystem(FSSpecHandler(zfs))
 dummy1_csv = csv.read_csv(arrow_fs.open_input_stream("dummy/dummy1.csv"))
 print(dummy1_csv)
