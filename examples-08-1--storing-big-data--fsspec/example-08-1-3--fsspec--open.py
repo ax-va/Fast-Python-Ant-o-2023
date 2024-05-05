@@ -18,7 +18,7 @@ with fsspec.open("zip://dummy/dummy1.csv::dummy.zip", "r") as f:  # "zip://" is 
 # URL chain to GitHub
 url_chain = (
     "zip://dummy/dummy1.csv::github://ax-va:Fast-Python-Antao-2023@"
-    "/examples-10-1--storing-big-data--fsspec/dummy.zip"
+    "/examples-08-1--storing-big-data--fsspec/dummy.zip"
 )
 
 with fsspec.open(url_chain) as f:
