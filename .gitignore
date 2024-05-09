@@ -1,6 +1,8 @@
-# large data
+# large datasates
 # 109.9 MB
-# from https://tiago.org/yellow_tripdata_2020-01.csv.gz
-large_data/yellow_tripdata_2020-01.csv.gz
+# source: https://tiago.org/yellow_tripdata_2020-01.csv.gz
+large_datasets/yellow_tripdata_2020-01.csv.gz
 # 113.1 MB
-large_data/yellow_tripdata_2020-01.parquet
+large_datasets/yellow_tripdata_2020-01.parquet
+# 86,4 MB
+large_datasets/yellow_tripdata_2020-01-ZSTD.parquet
